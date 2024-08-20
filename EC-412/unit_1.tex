@@ -1,0 +1,137 @@
+\documentclass[12pt, onecolumn]{article}
+\usepackage[margin = 2cm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{\bf{UNIT-1}}
+\author{Aaditya gupta}
+
+\begin{document}
+\maketitle
+
+\section{Ray Theory Transmission}
+    \subsection{Total internal reflection}
+        \begin{equation}
+            \frac{\sin\phi_1}{\sin\phi_2} = \frac{n_2}{n_1}
+            \label{eq:snell_law}
+        \end{equation}
+
+    \subsection{Acceptance angle}
+
+    \subsection{Numerical aperture}
+        \begin{equation}
+            \begin{aligned}
+                n_0 \sin\theta_1 &= n_1 \sin\theta_2 \\
+                            &= n_1 \cos\phi  \;\;\; \because \phi = \frac{\pi}{2} - \theta_2 \\
+                            &= n_1 (1 - \sin^2 \phi)^\frac{1}{2}
+            \end{aligned}
+        \end{equation}
+        
+        \begin{equation}
+            NA = n_0 \sin\theta_a = (n_1^2 - n_2^2)^\frac{1}{2}
+        \end{equation}
+        
+        refractive index difference:
+        \begin{equation}
+            \begin{aligned}
+                \Delta   &= \frac{n_1^2 - n_2^2}{2n_1^2} \\
+                    &= \frac{n_1 - n_2}{n_1} \;\;\; for \Delta \ll 1
+            \end{aligned}
+        \end{equation}
+        
+        \begin{equation}
+           \therefore NA = n_1 (2\Delta)^\frac{1}{2}
+        \end{equation}
+
+    \subsection{EM mode Theory}
+        \begin{equation}
+            \begin{aligned}
+                \nabla^2 \Psi &= \frac{\partial^2 \Psi}{\partial x^2} + \frac{\partial^2 \Psi}{\partial y^2} \frac{\partial^2 \Psi}{\partial z^2} \\
+                    &= \frac{\partial^2 \Psi}{\partial r^2} + \frac{1}{r} \frac{\partial \Psi}{\partial r} + \frac{1}{r^2} \frac{\partial^2 \Psi}{\partial \phi^2} + \frac{\partial^2 \Psi}{\partial z^2}
+            \end{aligned}
+            \label{eq:wave_eq}
+        \end{equation}
+    
+        solution to equation \ref{eq:wave_eq} is given by:
+        \begin{equation}
+            \Psi = \Psi_0 e^{j(\omega t - \bf{k} \cdot \bf{r})}
+            \label{eq:wave}
+        \end{equation}
+
+        where $k = |\bf{k}| = \frac{2\pi}{\lambda}$ 
+
+        \subsubsection{Phase and group velocity}
+            \begin{equation}
+                v_p = \frac{\omega}{\beta}
+                \label{eq:phase_vel}
+            \end{equation}
+            \begin{equation}
+                v_g = \frac{\partial\omega}{\partial\beta}
+                \label{eq:group_vel}
+            \end{equation} 
+        
+            \begin{equation}
+                \beta = n_1 \frac{2\pi}{\lambda} = \frac{n_1\omega}{c}
+            \end{equation}
+
+            thus eq \ref{eq:phase_vel} and eq \ref{eq:group_vel} become:
+            \begin{equation}
+                \boxed{\begin{aligned}
+                        v_p &= \frac{c}{n_1} \\
+                        v_g &= \frac{d\lambda}{d\beta} \cdot \frac{d\omega}{d\lambda} \\
+                            &= \frac{c}{n_1 - \lambda  \displaystyle\frac{d n_1}{d\lambda}} \\
+                            &= \frac{c}{N_g}
+                \end{aligned}}
+            \end{equation}
+
+    \subsection{Cylinderical Fiber}
+        \subsubsection{Modes}
+            \begin{equation}
+                \frac{\partial^2 \Psi}{\partial r^2} 
+                + \frac{1}{r} \frac{\partial \Psi}{\partial r} 
+                + \frac{1}{r^2} \frac{\partial^2 \Psi}{\partial \phi^2} 
+                + (n_1^2 k^2 - \beta^2)\Psi = 0 
+                \label{eq:cy_scalar_wave}
+            \end{equation}
+
+            where
+            \[
+                n_1 k < \beta < n_2 k
+            \]
+
+            solution of wave equation has the form
+            \begin{equation}
+                \Psi = E(r) \left[ \frac{\cos(l\phi)}{\sin(l\phi)} e^{wt-\beta z} \right]
+            \end{equation}
+            
+            substitute above eq in eq \ref{eq:cy_scalar_wave} gives:
+            \begin{equation}
+                \frac{\partial^2 \bf{E}}{\partial r^2} 
+                + \frac{1}{r} \frac{\partial \bf{E}}{\partial r} 
+                + \left[(n_1^2 k^2 - \beta^2) - \frac{l^2}{r^2} \right]\bf{E} = 0
+            \end{equation}
+
+            solution to the above eq is given by:
+            \begin{equation}
+                E(r) =
+                \begin{cases}
+                    GJ_l(UR), &\text{ for } R < 1 \\
+                    GJ_l(U) \displaystyle\frac{K_i(WR)}{K_i(W)} &\text{ for } R>1\\ 
+                \end{cases}
+                \label{eq:e_field}
+            \end{equation}
+            
+            where $G$ is amplitude coefficient, $ R = r/a $
+
+            $J_l$ \& $K_l$ is Bessel's function and modified Bessel's function
+
+           $U$ and $W$ are eigen values in core and cladding:
+            \begin{equation}
+                \begin{aligned}
+                    U &= a(n_1^2k^2 - \beta^2) \\
+                    W &= a(\beta^2 - n_2^2k^2) \\
+                \end{aligned}
+                \label{eq:eigen_val}
+            \end{equation}
+
+\end{document}

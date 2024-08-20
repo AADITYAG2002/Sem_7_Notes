@@ -1,0 +1,25 @@
+\documentclass[12pt, onecolumn]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{\bf{Laplace Trasnform}}
+\author{Aaditya Gupta}
+
+\begin{document}
+\maketitle
+
+Both Laplace Transform and ints inverse are defiend as follows:
+
+\begin{equation}
+    \mathcal{L}\{f(t)\} = F(s) = \int_{0}^{\infty} f(t)e^{-st} dt
+    
+    \label{eq: Laplace Transform}
+\end{equation}
+
+\begin{equation}
+    f(t) = \mathcal{L}^{-1}\{ F(s) \} = \frac{1}{2\pi} \lim_{Y \to +\infty} \int_{-Y}^{Y} F(\sigma + i\xi)e^{t(\sigma + i\xi)}d\xi
+    \label{eq:Inverse Laplace}
+\end{equation}
+
+\end{document}
