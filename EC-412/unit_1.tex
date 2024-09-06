@@ -43,95 +43,133 @@
            \therefore NA = n_1 (2\Delta)^\frac{1}{2}
         \end{equation}
 
-    \subsection{EM mode Theory}
+\section{EM mode Theory}
+    \begin{equation}
+        \begin{aligned}
+            \nabla^2 \Psi &= \frac{\partial^2 \Psi}{\partial x^2} + \frac{\partial^2 \Psi}{\partial y^2} \frac{\partial^2 \Psi}{\partial z^2} \\
+                &= \frac{\partial^2 \Psi}{\partial r^2} + \frac{1}{r} \frac{\partial \Psi}{\partial r} + \frac{1}{r^2} \frac{\partial^2 \Psi}{\partial \phi^2} + \frac{\partial^2 \Psi}{\partial z^2}
+        \end{aligned}
+        \label{eq:wave_eq}
+    \end{equation}
+
+    solution to equation \ref{eq:wave_eq} is given by:
+    \begin{equation}
+        \Psi = \Psi_0 e^{j(\omega t - \bf{k} \cdot \bf{r})}
+        \label{eq:wave}
+    \end{equation}
+
+    where $k = |\bf{k}| = \frac{2\pi}{\lambda}$ 
+
+    \subsection{Phase and group velocity}
+        \begin{equation}
+            v_p = \frac{\omega}{\beta}
+            \label{eq:phase_vel}
+        \end{equation}
+        \begin{equation}
+            v_g = \frac{\partial\omega}{\partial\beta}
+            \label{eq:group_vel}
+        \end{equation} 
+    
+        \begin{equation}
+            \beta = n_1 \frac{2\pi}{\lambda} = \frac{n_1\omega}{c}
+        \end{equation}
+
+        thus eq \ref{eq:phase_vel} and eq \ref{eq:group_vel} become:
+        \begin{equation}
+            \boxed{\begin{aligned}
+                    v_p &= \frac{c}{n_1} \\
+                    v_g &= \frac{d\lambda}{d\beta} \cdot \frac{d\omega}{d\lambda} \\
+                        &= \frac{c}{n_1 - \lambda  \displaystyle\frac{d n_1}{d\lambda}} \\
+                        &= \frac{c}{N_g}
+            \end{aligned}}
+        \end{equation}
+
+\section{Cylinderical Fiber}
+    \subsection{Modes}
+        \begin{equation}
+            \frac{\partial^2 \Psi}{\partial r^2} 
+            + \frac{1}{r} \frac{\partial \Psi}{\partial r} 
+            + \frac{1}{r^2} \frac{\partial^2 \Psi}{\partial \phi^2} 
+            + (n_1^2 k^2 - \beta^2)\Psi = 0 
+            \label{eq:cy_scalar_wave}
+        \end{equation}
+
+        where
+        \[
+            n_1 k < \beta < n_2 k
+        \]
+
+        solution of wave equation has the form
+        \begin{equation}
+            \Psi = E(r) \left[ \frac{\cos(l\phi)}{\sin(l\phi)} e^{wt-\beta z} \right]
+        \end{equation}
+        
+        substitute above eq in eq \ref{eq:cy_scalar_wave} gives:
+        \begin{equation}
+            \frac{\partial^2 \bf{E}}{\partial r^2} 
+            + \frac{1}{r} \frac{\partial \bf{E}}{\partial r} 
+            + \left[(n_1^2 k^2 - \beta^2) - \frac{l^2}{r^2} \right]\bf{E} = 0
+        \end{equation}
+
+        solution to the above eq is given by:
+        \begin{equation}
+            E(r) =
+            \begin{cases}
+                GJ_l(UR), &\text{ for } R < 1 \\
+                GJ_l(U) \displaystyle\frac{K_i(WR)}{K_i(W)} &\text{ for } R>1\\ 
+            \end{cases}
+            \label{eq:e_field}
+        \end{equation}
+        
+        where $G$ is amplitude coefficient, $ R = r/a $
+
+        $J_l$ \& $K_l$ is Bessel's function and modified Bessel's function
+
+       $U$ and $W$ are eigen values in core and cladding:
         \begin{equation}
             \begin{aligned}
-                \nabla^2 \Psi &= \frac{\partial^2 \Psi}{\partial x^2} + \frac{\partial^2 \Psi}{\partial y^2} \frac{\partial^2 \Psi}{\partial z^2} \\
-                    &= \frac{\partial^2 \Psi}{\partial r^2} + \frac{1}{r} \frac{\partial \Psi}{\partial r} + \frac{1}{r^2} \frac{\partial^2 \Psi}{\partial \phi^2} + \frac{\partial^2 \Psi}{\partial z^2}
+                U &= a(n_1^2k^2 - \beta^2) \\
+                W &= a(\beta^2 - n_2^2k^2) \\
             \end{aligned}
-            \label{eq:wave_eq}
+            \label{eq:eigen_val}
+        \end{equation}
+
+        normalized frequency:
+        \begin{equation}
+            \begin{aligned}
+                V   &= \left(U^2 + W^2\right)^{1/2} \\
+                    &= ka\left(n_1^2 + n_2^2\right)^{1/2} \\
+                    &= \frac{2\pi}{\lambda}a(NA)\\
+            \end{aligned}
+        \end{equation}
+
+        normalized propagation constant:
+        \begin{equation}
+            \begin{aligned}
+                b   &= 1 - \displaystyle\frac{U^2}{V^2} \\
+                    &= \displaystyle\frac{(\beta/k)^2 - n_2^2}{n_1^2 - n_2^2} \\
+                    &= \displaystyle\frac{(\beta/k)^2 - n_2^2}{2n_1^2 \Delta} \\
+            \end{aligned}
         \end{equation}
     
-        solution to equation \ref{eq:wave_eq} is given by:
-        \begin{equation}
-            \Psi = \Psi_0 e^{j(\omega t - \bf{k} \cdot \bf{r})}
-            \label{eq:wave}
-        \end{equation}
-
-        where $k = |\bf{k}| = \frac{2\pi}{\lambda}$ 
-
-        \subsubsection{Phase and group velocity}
+    \subsection{Fiber Index}
+        \subsubsection{Step Index}
             \begin{equation}
-                v_p = \frac{\omega}{\beta}
-                \label{eq:phase_vel}
-            \end{equation}
-            \begin{equation}
-                v_g = \frac{\partial\omega}{\partial\beta}
-                \label{eq:group_vel}
-            \end{equation} 
-        
-            \begin{equation}
-                \beta = n_1 \frac{2\pi}{\lambda} = \frac{n_1\omega}{c}
-            \end{equation}
-
-            thus eq \ref{eq:phase_vel} and eq \ref{eq:group_vel} become:
-            \begin{equation}
-                \boxed{\begin{aligned}
-                        v_p &= \frac{c}{n_1} \\
-                        v_g &= \frac{d\lambda}{d\beta} \cdot \frac{d\omega}{d\lambda} \\
-                            &= \frac{c}{n_1 - \lambda  \displaystyle\frac{d n_1}{d\lambda}} \\
-                            &= \frac{c}{N_g}
-                \end{aligned}}
-            \end{equation}
-
-    \subsection{Cylinderical Fiber}
-        \subsubsection{Modes}
-            \begin{equation}
-                \frac{\partial^2 \Psi}{\partial r^2} 
-                + \frac{1}{r} \frac{\partial \Psi}{\partial r} 
-                + \frac{1}{r^2} \frac{\partial^2 \Psi}{\partial \phi^2} 
-                + (n_1^2 k^2 - \beta^2)\Psi = 0 
-                \label{eq:cy_scalar_wave}
-            \end{equation}
-
-            where
-            \[
-                n_1 k < \beta < n_2 k
-            \]
-
-            solution of wave equation has the form
-            \begin{equation}
-                \Psi = E(r) \left[ \frac{\cos(l\phi)}{\sin(l\phi)} e^{wt-\beta z} \right]
-            \end{equation}
-            
-            substitute above eq in eq \ref{eq:cy_scalar_wave} gives:
-            \begin{equation}
-                \frac{\partial^2 \bf{E}}{\partial r^2} 
-                + \frac{1}{r} \frac{\partial \bf{E}}{\partial r} 
-                + \left[(n_1^2 k^2 - \beta^2) - \frac{l^2}{r^2} \right]\bf{E} = 0
-            \end{equation}
-
-            solution to the above eq is given by:
-            \begin{equation}
-                E(r) =
+                n(r) = 
                 \begin{cases}
-                    GJ_l(UR), &\text{ for } R < 1 \\
-                    GJ_l(U) \displaystyle\frac{K_i(WR)}{K_i(W)} &\text{ for } R>1\\ 
+                    n_1 & r < a \; \text{ core } \\
+                    n_2 & r \ge a \; \text{ cladding } \\                    
                 \end{cases}
-                \label{eq:e_field}
+                \label{eq:step_index}
             \end{equation}
-            
-            where $G$ is amplitude coefficient, $ R = r/a $
 
-            $J_l$ \& $K_l$ is Bessel's function and modified Bessel's function
-
-           $U$ and $W$ are eigen values in core and cladding:
+        \subsubsection{Graded Index}
             \begin{equation}
-                \begin{aligned}
-                    U &= a(n_1^2k^2 - \beta^2) \\
-                    W &= a(\beta^2 - n_2^2k^2) \\
-                \end{aligned}
-                \label{eq:eigen_val}
+                n(r) = 
+                \begin{cases}
+                    n_1(1-2\Delta(r/a)^\alpha)^{1/2} & r < a \; \text{ core } \\
+                    n_1(1-2\Delta)^{1/2} = n_2 & r \ge a \; \text{ cladding } \\                    
+                \end{cases}
+                \label{eq:graded_index}
             \end{equation}
-
 \end{document}
