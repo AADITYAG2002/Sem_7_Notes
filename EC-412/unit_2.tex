@@ -1,0 +1,56 @@
+\documentclass[12pt, onecolumn]{article}
+\usepackage[margin = 2cm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{\bf{UNIT-2}}
+\author{Aaditya gupta}
+
+\begin{document}
+\maketitle
+
+\section{Attenuation}
+    \begin{equation}
+        \alpha_{dB}L = 10 \log_{10} \frac{P_i}{P_o} \;\;\; L : \text{ length of fiber}
+        \label{eq:attenuation}
+    \end{equation}
+
+\section{Linear Scattering Loss}
+    \subsection{Rayleigh scattering}
+        \begin{equation}
+            \gamma_R = \displaystyle\frac{8\pi^3}{3\lambda^4}n^8p^2\beta_c K T_F
+            \label{eq:rayleigh}
+        \end{equation}
+
+        where $ \gamma_R $ is Rayleigh scattering coefficient, $\lambda$ is optical wavelength, $n$ is refractive index of medium,
+        $p$ is average photoelastic coefficient, $\beta_c$ is isothermal compressibility at a fictive temperature $T_F$ and $K$ is 
+        Boltzmann constant
+
+\section{Nonlinear Scattering Loss}
+    \subsection{Stimulated Brillouin Scattering}
+        \begin{equation}
+            P_B = 4.4 \times 10^{-3} d^2\lambda^2\alpha_{dB}v \text{  watts}
+            \label{eq: sbs}
+        \end{equation} 
+        where $d$ and $\lambda$ are fiber core diameter and operating wavelength, measured in
+        micrometers. $v$ is source bandwidth.
+
+    \subsection{Stimulated Raman Scattering}
+        \begin{equation}
+            P_R = 5.9 \times 10^{-2}d^2\lambda^2\alpha_{dB}
+            \label{eq:srs}
+        \end{equation}
+
+\section{Fiber bend Loss}
+    \begin{equation}
+        R_c \simeq \displaystyle\frac{3n_1^2\lambda}{4\pi(n_1^2-n_2^2)^{1/2}}
+        \label{eq:crit_radius}
+    \end{equation}
+    critical radius of curvature for single mode fiber
+    \begin{equation}
+        R_{cs} \simeq \displaystyle\frac{20\lambda}{(n_1 - n_2)^1/2} \left( 2.748 - 0.996 \displaystyle\frac{\lambda}{\lambda_c} \right)^{-3}
+        \label{eq:crit_single_radius}
+    \end{equation}
+
+
+\end{document}
