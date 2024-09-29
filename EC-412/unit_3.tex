@@ -1,0 +1,85 @@
+\documentclass[12pt, onecolumn]{article}
+\usepackage[margin = 2cm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{\bf{UNIT-3}}
+\author{Aaditya gupta}
+
+\begin{document}
+\maketitle
+
+\section{Fiber alignment and joint loss}
+    Loss due to Fresnel reflection
+    \begin{equation}
+        \begin{aligned}
+            r & = \left( \displaystyle\frac{n_1 - n}{n_1 + n} \right)^2 \;\;\; \text{fraction of light reflected} \\
+            \text{Loss}_{Fres} &= -10\log_{10}(1-r)
+        \end{aligned}
+        \label{eq:fresnel_loss}
+    \end{equation}
+
+    \subsection{Multimode fiber joints}
+        Lateral Misalignment Loss
+        \begin{equation}
+            \begin{aligned}
+                \eta_{lat} &= \displaystyle\frac{16(n_1/n)^2}{[1+(n_1/n)]^4} \frac{1}{\pi} 
+                            \left\{ 2\cos^{-1} \left(\frac{y}{2a}\right) - \left(\frac{y}{a}\right)\left[1-\left(\frac{y}{2a}\right)^2\right]^{1/2} \right\} \\
+                \text{Loss}_{lat} &= -10\log_{10} \eta_{lat}
+            \end{aligned}
+            \label{eq:lat_misalign_loss}
+        \end{equation}
+
+        for small lateral offset
+        \begin{equation}
+            \begin{aligned}
+                L_t &= \frac{2}{\pi} \left(\frac{y}{a}\right)\left(\frac{\alpha+2}{\alpha+1}\right) \;\;\; \text{for } 0\leq y \leq 0.2 a \\
+                \eta_{lat} &= 1 - L_t \\
+            \end{aligned}
+            \label{eq:small_lat}
+        \end{equation}
+
+        Angular Misalignment Loss
+        \begin{equation}
+            \begin{aligned}
+                \eta_{ang} &= \displaystyle\frac{16(n_1/n)^2}{[1+(n_1/n)]^4} \left[ 1 - \displaystyle\frac{ n\theta }{ \pi n_1 (2\Delta)^{1/2}} \right]  \\
+                \text{Loss}_{ang} &= -10 \log_{10} \eta_{ang} \\
+            \end{aligned}
+            \label{eq:and_loss}
+        \end{equation}
+
+        Loss due to core diameter mismatch
+        \begin{equation}
+            \text{Loss}_{CD} = \begin{cases}
+                -10 \log_{10} \left(\displaystyle\frac{a_2}{a_1}\right)^2 & a_2 < a_1 \\
+                0 & a_2 \geq a_1 \\                
+            \end{cases}
+            \label{eq:cd_loss}
+        \end{equation}
+
+        Loss due to NA mismatch
+        \begin{equation}
+            \text{Loss}_{NA} = \begin{cases}
+                -10 \log_{10} \left(\displaystyle\frac{NA_2}{NA_1}\right)^2 & NA_2 < NA_1 \\
+                0 & NA_2 \geq NA_1 \\                
+            \end{cases}
+            \label{eq:na_loss}
+        \end{equation}
+
+        Loss due to Refractive Index mismatch
+        \begin{equation}
+            \text{Loss}_{RI} = \begin{cases}
+                -10 \log_{10} \left(\displaystyle\frac{\alpha_2(\alpha_1 + 2)}{\alpha_1 (\alpha_2 + 2)}\right)^2 & \alpha_2 < \alpha_1 \\
+                0 & \alpha_2 \geq \alpha_1 \\                
+            \end{cases}
+            \label{eq:ri_loss}
+        \end{equation}
+
+        Intrinsic Loss
+        \begin{equation}
+            \text{Loss}_{int} = \text{Loss}_{CD} + \text{Loss}_{NA} + \text{Loss}_{RI}
+            \label{eq:intrinsic_loss}
+        \end{equation}
+
+
+\end{document}
