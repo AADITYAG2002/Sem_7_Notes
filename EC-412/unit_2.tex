@@ -58,4 +58,34 @@
         \label{eq:beta}
     \end{equation}
 
+    \begin{equation}
+        B_T \leq \frac{1}{2\tau} \;\;\; \tau = \text{pulse duration due to dispersion}
+        \label{eq:opt_bit_rate}
+    \end{equation}
+    
+    \subsection{Chromatic dispersion : Material Dispersion}
+        \begin{equation}
+            \begin{aligned}
+                \text{rms pulse broadening : }\sigma_m &= \displaystyle\frac{\sigma_\lambda L}{c} 
+                        \left| \lambda \displaystyle\frac{d^2 n_1}{d\lambda^2} \right| \\
+                \text{material dispersion parameter : }M &= \frac{\lambda}{c} \left| \displaystyle\frac{d^2 n_1}{d\lambda^2} \right| \\
+                \sigma_m &= \sigma_\lambda L M \\
+            \end{aligned}
+            \label{eq:mat_dispersion}
+        \end{equation}
+
+    \subsection{Intermodal Dispersion}
+        \begin{equation}
+            \begin{aligned}
+                \text{delay difference : } \delta T_s &= \frac{Ln_1\Delta}{c} = \frac{L(NA)^2}{2 n_1 c} \\
+                \sigma_s &= \frac{L n_1 \Delta}{2 \sqrt 3 c} = \frac{L(NA)^2}{4\sqrt 3 n_1 c} \\
+            \end{aligned} 
+            \label{eq:intermodal_dispersion}
+        \end{equation}
+
+    \subsection{Overall fiber dispersion}
+        \begin{equation}
+            D_T(\lambda) = \displaystyle\frac{\lambda S_0}{4} \left[ 1 - \left(\displaystyle\frac{\lambda_0}{\lambda}\right)^2 \right]
+            \label{eq:total_chromatic}
+        \end{equation}
 \end{document}
